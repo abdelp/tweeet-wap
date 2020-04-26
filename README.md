@@ -19,13 +19,13 @@
 
 From the command line:
 
-    $ git clone git@github.com:abdelp/tweet-wap.git
+    $ git clone git@github.com:abdelp/tweeet-wap.git
 
 ### Install dependecies
 
 Go to the root folder of the project and execute:
 
-    $ cd tweet-wap/
+    $ cd tweeet-wap/
     $ bundler
 
 Follow the instructions to give access to callmebot and get the URI to use it as indicated here:
