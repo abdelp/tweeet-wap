@@ -1,4 +1,4 @@
-# Tweet-Wap
+# Tweeet-Wap
 
 > This project consists of building a Twitter Bot to send tweets to Whatsapp.
 
