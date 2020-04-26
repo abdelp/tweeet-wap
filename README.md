@@ -28,10 +28,13 @@ Go to the root folder of the project and execute:
     $ cd tweet-wap/
     $ bundler
 
-Follow the instructions to give access to callmebot as indicated here:
+Follow the instructions to give access to callmebot and get the URI to use it as indicated here:
 
 https://www.callmebot.com/blog/free-api-whatsapp-messages/
 
+Set up a twitter developer account and create an app there. ([How to](https://www.extly.com/docs/autotweetng_joocial/tutorials/how-to-auto-post-from-joomla-to-twitter/apply-for-a-twitter-developer-account/#apply-for-a-developer-account))
+
+Go to the lib/config.rb file and enter your keys from your twitter app and callmebot URI.
 
 ### Execution
 
