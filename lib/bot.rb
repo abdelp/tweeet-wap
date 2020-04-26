@@ -1,19 +1,20 @@
 require 'twitter'
-require_relative 'config'
 require 'yaml'
 require 'net/http'
 require 'uri'
+require_relative 'config'
 
 class TwitterBot
     include Config
   
-    def initialize
+    def initialize(username)
       @client = Twitter::REST::Client.new do |config|
         config.consumer_key = CONSUMER_KEY
         config.consumer_secret = CONSUMER_SECRET
         config.access_token = ACCESS_TOKEN
         config.access_token_secret = ACCESS_TOKEN_SECRET
       end
+      @username = username
       @tweets = []
     end
   
@@ -21,7 +22,7 @@ class TwitterBot
   
     def get_tweet
       puts 'Retrieving tweets...'
-      @tweets = @client.user_timeline('mazzolenijulio', count: 1)
+      @tweets = @client.user_timeline(@username, count: 1)
     end
   
     def save_tweet
@@ -52,12 +53,11 @@ class TwitterBot
     def run
       loop do
         get_tweet
-        @tweets.each { |tweet| puts tweet.full_text + "\n\t ------------" }
-        # like send to whatsapp
+        @tweets.each { |tweet| puts tweet.full_text + "\n" }
         save_tweet
         send_message
         reset
-        sleep 21_600
+        sleep 60
       end
     end
   end
