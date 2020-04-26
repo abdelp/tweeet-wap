@@ -18,7 +18,18 @@ class TwitterBot
     @tweets = []
   end
 
-    private
+  def run
+    loop do
+      get_tweet
+      @tweets.each { |tweet| puts tweet.full_text + "\n" }
+      save_tweet
+      send_message
+      reset
+      sleep 60
+    end
+  end
+
+  private
 
   def get_tweet
     puts 'Retrieving tweets...'
@@ -46,18 +57,5 @@ class TwitterBot
     req = Net::HTTP::Get.new(uri)
     res = Net::HTTP.get_response(uri)
     puts res.body
-  end
-
-  public
-
-  def run
-    loop do
-      get_tweet
-      @tweets.each { |tweet| puts tweet.full_text + "\n" }
-      save_tweet
-      send_message
-      reset
-      sleep 60
-    end
   end
 end
